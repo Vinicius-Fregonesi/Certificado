@@ -1,0 +1,34 @@
+<mat-toolbar class="justify-content-between" color="primary">
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+    Menu
+  </button>
+
+  <button mat-button>
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <button mat-button>
+    <mat-icon>info</mat-icon>
+    Sobre
+  </button>
+  <button mat-button>
+    <mat-icon>email</mat-icon>
+    Contato
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    Configurações
+  </button>
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    Perfil
+  </button>
+  <button mat-menu-item>
+    <mat-icon>exit_to_app</mat-icon>
+    Sair
+  </button>
+</mat-menu>

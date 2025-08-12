@@ -1,0 +1,34 @@
+<form [formGroup]="formulario" class="form w-50 mx-auto mt-5 text-center mb-5">
+    <input type="number" formControlName="id" class="form-control" readonly [value]="alunoSelecionado" *ngIf="!btnCadastrar">
+    @if(formulario.get('nome').hasError('required')&&formulario.get('nome').touched){
+        <p class="alert alert-warning">Preencha o campo nome.</p>
+    }
+    @if(formulario.get('nome').hasError('minlength')&&formulario.get('nome').touched){
+        <p class="alert alert-warning">O campo nome precisa ter mais de 3 caracteres.</p>
+    }
+    <input type="text" formControlName="nome" placeholder="Nome" class="form-control">
+    @if(formulario.get('nota1').hasError('required')&&formulario.get('nota1').touched){
+        <p class="alert alert-warning">Preencha o campo nota 1.</p>
+    }
+    @if(formulario.get('nota1').hasError('min')&&formulario.get('nota1').touched){
+        <p class="alert alert-warning">O campo nota 1 precisa ser maior ou igual a zero que 0.</p>
+    }
+    @if(formulario.get('nota1').hasError('max')&&formulario.get('nota1').touched){
+        <p class="alert alert-warning">O campo nota 1 precisa ser menor ou igual a 10.</p>
+    }
+    <input type="number" formControlName="nota1" placeholder="Nota 1" class="form-control">
+    @if(formulario.get('nota2').hasError('required')&&formulario.get('nota2').touched){
+        <p class="alert alert-warning">Preencha o campo nota 2.</p>
+    }
+    @if(formulario.get('nota2').hasError('min')&&formulario.get('nota2').touched){
+        <p class="alert alert-warning">O campo nota 2 precisa ser maior ou igual a zero que 0.</p>
+    }
+    @if(formulario.get('nota2').hasError('max')&&formulario.get('nota2').touched){
+        <p class="alert alert-warning">O campo nota 2 precisa ser menor ou igual a 10.</p>
+    }
+    <input type="number" formControlName="nota2" placeholder="Nota 2" class="form-control">
+
+    <input type="button" value="Cadastrar" (click)="cadastrar()" *ngIf="btnCadastrar" class="btn btn-primary"  [disabled]="formulario.invalid" />
+
+    <input type="button" value="Editar" class="btn btn-primary" *ngIf="!btnCadastrar" (click)="alterar()" [disabled]="formulario.invalid" />
+    <input type="button" value="Excluir" class="btn btn-primary" *ngIf="!btnCadastrar" (click)="deletar()" [disabled]="formulario.invalid" />

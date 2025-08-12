@@ -1,0 +1,6 @@
+<app-menu></app-menu>
+<app-index-form [alunoSelecionado]="alunoSelecionado" (alunoCadastro)="cadastrarAluno($event)"
+(alunoAlterar)="editarAluno($event)" (alunoExcluir)="removerAluno($event)" primary></app-index-form>
+<app-index-table [alunosCadastrados]="alunos" (selecionarAluno)="selecionarAluno($event)"></app-index-table>
+
+  

@@ -1,0 +1,21 @@
+<table class="table table-striped w-50 mx-auto" border="2px">
+    <thead>
+        <tr>
+            <th>*</th>  
+            <th>Aluno</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let aluno of alunosCadastrados; let id = index">
+            <th>{{aluno.id}}</th>
+            <th>{{aluno.nome}}</th>
+            <th>{{aluno.nota1}}</th>
+            <th>{{aluno.nota2}}</th>
+            <th>{{aluno | media}}</th>
+            <th><button class="btn btn-primary" (click)="selecionar(aluno)">Selecionar</button></th>
+        </tr>
+    </tbody>
+</table>
